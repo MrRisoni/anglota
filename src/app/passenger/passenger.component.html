@@ -1,3 +1,95 @@
-<p>
-  passenger works!
-</p>
+<div class="row passengerCompo show passengerListCollapse">
+    <div class="col-12">
+        <div class="card bg-light">
+
+
+            <div class="card-header">
+
+                <div class="row passengerId">
+
+                    <div class="col-8 offset-3">
+                        Passenger # 1
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-6">
+
+                        <select class="form-control">
+                            <option value="">Select Type</option>
+                            <option value="ADT">Adult</option>
+                            <option value="CNN">Child</option>
+                            <option value="INF">Infant</option>
+                        </select>
+                    </div>
+
+                    <div class="col-6">
+                        <select class="form-control">
+                            <option value="Y">Economy</option>
+                            <option value="W">Premium Economy</option>
+                            <option value="C">Business</option>
+                            <option value="F">First Class</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="row passengerToggle">
+
+
+                    <div class="col-8 offset-2">
+                        <button class="btn btn-sm btn-dark btn-block btnToggle" data-toggle="collapse"
+                                data-target="#passengerCollapse0" aria-expanded="false" aria-controls="collapseExample">
+                            Toggle
+                        </button>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- begin body card div -->
+            <div class="card-body collapse show" id="passengerCollapse0">
+                <div class="row">
+                    <div class="col-3"><select class="form-control">
+                        <option value="">Select Gender</option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select></div>
+                    <div class="col-6">
+                        <div>
+                            <div class="react-datepicker-wrapper">
+                                <div class="react-datepicker__input-container"><input type="text" value="4 Nov 2018"
+                                                                                      class="form-control"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row"><br>
+                    <div class="col-6"><input type="text" placeholder="Surname" id="#paxSurname0" value=""
+                                              class="form-control">
+                        <div></div>
+                    </div>
+                    <div class="col-5"><input type="text" placeholder="Name" id="#paxName0" value=""
+                                              class="form-control">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <!-- end body card div -->
+
+
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-8 offset-2">
+                        <button class="btn btn-primary btn-sm btn-danger">Remove this Passenger</button>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end card div -->
+
+    </div>
+</div>

@@ -1,3 +1,14 @@
-<p>
-  passenger-list works!
-</p>
+<div class="alert alert-primary" role="alert">
+    <div class="row">
+        <div class="col-7">Passenger List</div>
+        <div class="col-5 ">
+            <button class="btn btn-sm btn-dark btn-block btnToggle" data-toggle="collapse"
+                    data-target="#passengerListCollapse" aria-expanded="false" aria-controls="collapseExample">Toggle
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="passengerListCollapse">
+    <app-passenger></app-passenger>
+</div>
