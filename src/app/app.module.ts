@@ -6,6 +6,14 @@ import { PriceBoxComponent } from './price-box/price-box.component';
 import { PassengerComponent } from './passenger/passenger.component';
 import { PassportComponent } from './passport/passport.component';
 import { PassengerListComponent } from './passenger-list/passenger-list.component';
+import { ContactComponent } from './contact/contact.component';
+import { PaymentComponent } from './payment/payment.component';
+import { PreseatingComponent } from './preseating/preseating.component';
+import { InsuranceComponent } from './insurance/insurance.component';
+import { BagsComponent } from './bags/bags.component';
+import { MealsComponent } from './meals/meals.component';
+import { FlexibleComponent } from './flexible/flexible.component';
+import { BlueribbonComponent } from './blueribbon/blueribbon.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +21,15 @@ import { PassengerListComponent } from './passenger-list/passenger-list.componen
     PriceBoxComponent,
     PassengerComponent,
     PassportComponent,
-    PassengerListComponent
+    PassengerListComponent,
+    ContactComponent,
+    PaymentComponent,
+    PreseatingComponent,
+    InsuranceComponent,
+    BagsComponent,
+    MealsComponent,
+    FlexibleComponent,
+    BlueribbonComponent
   ],
   imports: [
     BrowserModule

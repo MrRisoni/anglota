@@ -52,33 +52,37 @@
             <!-- begin body card div -->
             <div class="card-body collapse show" id="passengerCollapse0">
                 <div class="row">
-                    <div class="col-3"><select class="form-control">
+                    <div class="col-7 offset-col-2"><select class="form-control">
                         <option value="">Select Gender</option>
                         <option value="M">Male</option>
                         <option value="F">Female</option>
-                    </select></div>
-                    <div class="col-6">
-                        <div>
-                            <div class="react-datepicker-wrapper">
-                                <div class="react-datepicker__input-container"><input type="text" value="4 Nov 2018"
-                                                                                      class="form-control"></div>
-                            </div>
-                        </div>
+                    </select>
                     </div>
                 </div>
 
-                <div class="row"><br>
-                    <div class="col-6"><input type="text" placeholder="Surname" id="#paxSurname0" value=""
+
+                <div class="row">
+                    <div class="col-12"><input type="text" placeholder="Surname" id="#paxSurname0" value=""
                                               class="form-control">
                         <div></div>
                     </div>
-                    <div class="col-5"><input type="text" placeholder="Name" id="#paxName0" value=""
+                </div>
+
+                <div class="row">
+                    <div class="col-12"><input type="text" placeholder="Name" id="#paxName0" value=""
                                               class="form-control">
                         <div></div>
                     </div>
                 </div>
             </div>
             <!-- end body card div -->
+
+            <app-passport></app-passport>
+            <app-insurance></app-insurance>
+            <app-bags></app-bags>
+            <app-blueribbon></app-blueribbon>
+            <app-meals></app-meals>
+            <app-flexible></app-flexible>
 
 
             <div class="card-footer">
@@ -92,4 +96,4 @@
         </div> <!-- end card div -->
 
     </div>
-</div>
+
