@@ -10,7 +10,7 @@ import {TicketMdl} from '../models/TicketMdl';
 export class PriceBoxComponent implements OnInit {
 
     @Input()
-    passengerArray: PassengerMdl;
+    passengerArray: PassengerMdl[];
 
     @Input()
     ticketPrices: TicketMdl[];
@@ -33,6 +33,6 @@ export class PriceBoxComponent implements OnInit {
                 });
             }
         });
-        return  totalPrice
+        return  totalPrice;
     }
 }
