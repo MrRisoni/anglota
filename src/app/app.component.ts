@@ -14,6 +14,6 @@ export class AppComponent {
   pax1 = new PassengerMdl(0, 1);
   pax2 = new PassengerMdl(1, 2);
 
-  passengerArray: PassengerMdl = [this.pax1, this.pax2];
+  passengerArray: PassengerMdl[] = [this.pax1, this.pax2];
 
 }
