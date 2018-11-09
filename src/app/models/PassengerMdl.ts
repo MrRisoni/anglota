@@ -20,6 +20,7 @@ export class PassengerMdl {
         this.ageGroup = 'ADT';
         this.cabinClass = 'Y';
         this.id = id;
+        this.active = true;
         this.humanId = human;
     }
 }
