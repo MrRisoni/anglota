@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+
+import { PassengerMdl } from '../models/PassengerMdl';
+
 
 @Component({
   selector: 'app-passenger-list',
@@ -6,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./passenger-list.component.css']
 })
 export class PassengerListComponent implements OnInit {
+
+
+    @Input()
+    passengerArray: PassengerMdl[];
 
   constructor() { }
 

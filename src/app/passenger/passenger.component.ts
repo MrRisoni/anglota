@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+
+import { PassengerMdl } from '../models/PassengerMdl';
+
 
 @Component({
   selector: 'app-passenger',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PassengerComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
-  }
+    @Input()
+    pax: PassengerMdl;
+
+    constructor() { }
+
+    ngOnInit() {
+    }
 
 }

@@ -10,8 +10,10 @@
 </div>
 
 <div id="passengerListCollapse">
-    <app-passenger></app-passenger>
-    <app-passenger></app-passenger>
-    <app-passenger></app-passenger>
+
+
+    <div *ngFor="let pax of passengerArray">
+        <app-passenger [pax]="pax"></app-passenger>
+    </div>
 
 </div>
