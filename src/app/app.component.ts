@@ -11,8 +11,8 @@ import { PassengerMdl } from './models/PassengerMdl';
 export class AppComponent {
   title = 'anglota';
 
-  pax1 = new PassengerMdl();
-  pax2 = new PassengerMdl();
+  pax1 = new PassengerMdl(0, 1);
+  pax2 = new PassengerMdl(1, 2);
 
   passengerArray: PassengerMdl = [this.pax1, this.pax2];
 

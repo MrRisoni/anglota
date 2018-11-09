@@ -11,10 +11,17 @@ import { PassengerMdl } from '../models/PassengerMdl';
 export class PassengerComponent implements OnInit {
 
 
+    idName = '#passengerCollapse';
+
+
     @Input()
     pax: PassengerMdl;
 
-    constructor() { }
+
+
+    constructor() {
+
+    }
 
     ngOnInit() {
     }

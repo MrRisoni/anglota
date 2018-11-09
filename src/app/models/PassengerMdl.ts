@@ -16,8 +16,10 @@ export class PassengerMdl {
     };
 
 
-    constructor() {
+    constructor(id, human) {
         this.ageGroup = 'ADT';
         this.cabinClass = 'Y';
+        this.id = id;
+        this.humanId = human;
     }
 }
