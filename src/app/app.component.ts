@@ -21,6 +21,8 @@ export class AppComponent {
 
     blueRibbonPrice = 3.5;
 
+    boughtBlueRibbon = [];
+
     passengerArray: PassengerMdl[] = [this.pax1, this.pax2];
     ticketPrices: TicketMdl[] = [this.tkt1, this.tkt2, this.tkt3];
 }

@@ -25,7 +25,7 @@
                 </div>
                 <div class="row">
                     <div class="col-10 offset-1">
-                        <select class="form-control">
+                        <select class="form-control" (change)="changeBRB($event, pax.id)">
                             <option value="0">No thanks</option>
                             <option value="1">Yes please</option>
                         </select></div>

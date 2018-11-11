@@ -20,6 +20,8 @@ export class PassengerComponent implements OnInit {
     @Input()
     blueRibbonPrice: number;
 
+    @Input()
+    boughtBlueRibbon: any[];
 
 
     constructor() {
