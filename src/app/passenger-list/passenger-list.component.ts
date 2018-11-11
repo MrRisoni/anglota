@@ -14,6 +14,9 @@ export class PassengerListComponent implements OnInit {
     @Input()
     passengerArray: PassengerMdl[];
 
+    @Input()
+    blueRibbonPrice: number;
+
     constructor() {
     }
 

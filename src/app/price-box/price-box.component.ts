@@ -15,6 +15,9 @@ export class PriceBoxComponent implements OnInit {
     @Input()
     ticketPrices: TicketMdl[];
 
+    @Input()
+    blueRibbonPrice: number;
+
     constructor() {
     }
 

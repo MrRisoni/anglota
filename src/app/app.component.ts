@@ -19,6 +19,7 @@ export class AppComponent {
     tkt2 = new TicketMdl('CNN', 'Y', 45);
     tkt3 = new TicketMdl('INF', 'Y', 15);
 
+    blueRibbonPrice = 3.5;
 
     passengerArray: PassengerMdl[] = [this.pax1, this.pax2];
     ticketPrices: TicketMdl[] = [this.tkt1, this.tkt2, this.tkt3];

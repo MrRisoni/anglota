@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-blueribbon',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlueribbonComponent implements OnInit {
 
-  constructor() { }
+    @Input()
+    blueRibbonPrice: number;
 
-  ngOnInit() {
-  }
+    constructor() { }
+
+    ngOnInit() {
+    }
 
 }

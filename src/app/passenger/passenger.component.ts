@@ -17,6 +17,9 @@ export class PassengerComponent implements OnInit {
     @Input()
     pax: PassengerMdl;
 
+    @Input()
+    blueRibbonPrice: number;
+
 
 
     constructor() {
