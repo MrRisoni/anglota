@@ -1,6 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PassengerMdl} from '../models/PassengerMdl';
 
+import { OtaService } from '../ota.service';
+
+
 @Component({
   selector: 'app-blueribbon',
   templateUrl: './blueribbon.component.html',
@@ -11,31 +14,22 @@ export class BlueribbonComponent implements OnInit {
     @Input()
     pax: PassengerMdl;
 
-    @Input()
     blueRibbonPrice: number;
 
-    @Input()
-    boughtBlueRibbon: any[];
-
-    constructor() { }
+    constructor(private otaSrvc: OtaService) { }
 
     ngOnInit() {
+        this.blueRibbonPrice = this.otaSrvc.blueRibbonPrice();
     }
 
     changeBRB(event, id) {
-        console.log('BRB was clicked ' + id + ' ' + event.target.value);
 
-        console.log(this.boughtBlueRibbon);
         if (event.target.value == 1) {
-            this.boughtBlueRibbon.push(id);
+            this.otaSrvc.buyBRB(id);
         }
         else {
-            console.log('filtering ');
-            console.log(this.boughtBlueRibbon);
-            this.boughtBlueRibbon = this.boughtBlueRibbon.filter(pxid => pxid != id);
+            this.otaSrvc.removeBRB(id);
 
-            console.log('after filtering ');
-            console.log(this.boughtBlueRibbon);
         }
     }
 

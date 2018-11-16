@@ -2,6 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {PassengerMdl} from '../models/PassengerMdl';
 import {TicketMdl} from '../models/TicketMdl';
 
+import { OtaService } from '../ota.service';
+
+
 @Component({
     selector: 'app-price-box',
     templateUrl: './price-box.component.html',
@@ -15,19 +18,17 @@ export class PriceBoxComponent implements OnInit {
     @Input()
     ticketPrices: TicketMdl[];
 
-    @Input()
     blueRibbonPrice: number;
-
-    @Input()
-    boughtBlueRibbon: any[];
-
+    boughtBlueRibbon: number[];
     paxGroups: any;
 
-    constructor() {
-    }
+    constructor(private otaSrvc: OtaService) { }
 
     ngOnInit() {
+        this.blueRibbonPrice = this.otaSrvc.blueRibbonPrice();
+        this.boughtBlueRibbon = this.otaSrvc.boughtBlueRibbon();
     }
+
 
     getPaxGroups() {
         this.paxGroups = [{age: 'INF', cabin: 'Y', count : 0}];
@@ -54,6 +55,8 @@ export class PriceBoxComponent implements OnInit {
     }
 
     get totalPrice() {
+
+        console.log('pricebix **********');
         let totalPrice = 0;
         this.passengerArray.forEach( (px) => {
             if (px.active === true) {

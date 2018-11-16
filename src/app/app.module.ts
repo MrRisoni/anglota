@@ -14,6 +14,7 @@ import { BagsComponent } from './bags/bags.component';
 import { MealsComponent } from './meals/meals.component';
 import { FlexibleComponent } from './flexible/flexible.component';
 import { BlueribbonComponent } from './blueribbon/blueribbon.component';
+import {OtaService} from './ota.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { BlueribbonComponent } from './blueribbon/blueribbon.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [OtaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
