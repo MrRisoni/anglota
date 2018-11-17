@@ -18,15 +18,22 @@ export class PriceBoxComponent implements OnInit {
     @Input()
     ticketPrices: TicketMdl[];
 
-    blueRibbonPrice: number;
-    boughtBlueRibbon: number[];
     paxGroups: any;
 
-    constructor(private otaSrvc: OtaService) { }
+
+
+    blueRibbonPrice: number;
+
+
+
+    constructor(private otaSrvc: OtaService) {
+
+    }
+
+
 
     ngOnInit() {
-        this.blueRibbonPrice = this.otaSrvc.blueRibbonPrice();
-        this.boughtBlueRibbon = this.otaSrvc.boughtBlueRibbon();
+        this.otaSrvc.blueRibbonPrice.subscribe(prc => this.blueRibbonPrice = prc);
     }
 
 
@@ -68,9 +75,9 @@ export class PriceBoxComponent implements OnInit {
             }
         });
 
-        console.log('length brb pricebox ' + this.boughtBlueRibbon.length);
-        console.log(this.boughtBlueRibbon);
-        totalPrice += this.boughtBlueRibbon.length * this.blueRibbonPrice;
+       // console.log('length brb pricebox ' + this.boughtBlueRibbon.length);
+    //    console.log(this.boughtBlueRibbon);
+      //  totalPrice += this.boughtBlueRibbon.length * this.blueRibbonPrice;
         return  totalPrice;
     }
 }

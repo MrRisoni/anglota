@@ -14,13 +14,21 @@ export class BlueribbonComponent implements OnInit {
     @Input()
     pax: PassengerMdl;
 
+
     blueRibbonPrice: number;
 
-    constructor(private otaSrvc: OtaService) { }
+
+
+    constructor(private otaSrvc: OtaService) {
+
+    }
+
+
 
     ngOnInit() {
-        this.blueRibbonPrice = this.otaSrvc.blueRibbonPrice();
+        this.otaSrvc.blueRibbonPrice.subscribe(prc => this.blueRibbonPrice = prc);
     }
+
 
     changeBRB(event, id) {
 

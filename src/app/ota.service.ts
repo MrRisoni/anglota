@@ -1,41 +1,41 @@
 import { Injectable,Output ,EventEmitter} from '@angular/core';
 
+import { Observable, Subject, BehaviorSubject  } from 'rxjs';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class OtaService {
 
-    private _blueRibbonPrice = 5.5;
+    private blueRibbonPriceSource = new BehaviorSubject( 5.5);
+    blueRibbonPrice = this.blueRibbonPriceSource.asObservable();
 
-    private _boughtBlueRibbon: number[];
+
 
 
     constructor() {
-        this._boughtBlueRibbon = [];
     }
 
 
-    blueRibbonPrice(): number {
-        return this._blueRibbonPrice;
-    }
 
-    boughtBlueRibbon(): number[] {
-        return this._boughtBlueRibbon;
+    getBlueRibbonPrice() {
+        return this.blueRibbonPriceSource.asObservable();
     }
 
 
-    @Output() emitBRB: EventEmitter<any> = new EventEmitter();
 
     buyBRB(paxId) {
         console.log('service buy');
-        this._boughtBlueRibbon.push(paxId);
-        this.emitBRB.emit(this._boughtBlueRibbon);
+
+        this.boughtBlueRibbonSource.next([1, 0]);
+
     }
 
     removeBRB(paxId) {
         console.log('service removeBRB');
 
-        this._boughtBlueRibbon = this._boughtBlueRibbon.filter(pxid => pxid != paxId);
-        this.emitBRB.emit(this._boughtBlueRibbon);
+       // this._boughtBlueRibbon = this._boughtBlueRibbon.filter(pxid => pxid != paxId);
+        this.boughtBlueRibbonSource.next([1]);
     }
 }
