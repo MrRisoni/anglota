@@ -64,6 +64,10 @@ export class PriceBoxComponent implements OnInit {
        // return Array.of(paxGroups.filter(px => px.count > 0));
     }
 
+    get BRBLength(): number {
+        return  this.blueRibbonBought.length;
+    }
+
     get totalPrice() {
 
         console.log('pricebix **********');
