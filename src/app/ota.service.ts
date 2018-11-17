@@ -12,7 +12,6 @@ export class OtaService {
     blueRibbonPrice = this.blueRibbonPriceSource.asObservable();
 
 
-
     private blueRibbonBoughtSource = new BehaviorSubject( []);
     blueRibbonBought = this.blueRibbonBoughtSource.asObservable();
 
@@ -20,28 +19,22 @@ export class OtaService {
     constructor() {
     }
 
-    getBlueRibbonBought(){
-        return this.blueRibbonBoughtSource.asObservable();
-    }
-
-
-    getBlueRibbonPrice() {
-        return this.blueRibbonPriceSource.asObservable();
-    }
-
 
 
     buyBRB(paxId) {
         console.log('service buy');
-
-        this.boughtBlueRibbonSource.next([1, 0]);
+        console.log(this.blueRibbonBoughtSource.getValue());
+        let rawVals = this.blueRibbonBoughtSource.getValue();
+        rawVals.push(paxId);
+        this.blueRibbonBoughtSource.next(rawVals);
 
     }
 
     removeBRB(paxId) {
         console.log('service removeBRB');
+        console.log(this.blueRibbonBoughtSource.getValue());
 
-       // this._boughtBlueRibbon = this._boughtBlueRibbon.filter(pxid => pxid != paxId);
-        this.boughtBlueRibbonSource.next([1]);
+        let rawVals = this.blueRibbonBoughtSource.getValue();
+        this.blueRibbonBoughtSource.next(rawVals.filter(pxid => pxid != paxId));
     }
 }
