@@ -23,6 +23,7 @@ export class PriceBoxComponent implements OnInit {
 
 
     blueRibbonPrice: number;
+    blueRibbonBought: number[];
 
 
 
@@ -34,6 +35,8 @@ export class PriceBoxComponent implements OnInit {
 
     ngOnInit() {
         this.otaSrvc.blueRibbonPrice.subscribe(prc => this.blueRibbonPrice = prc);
+        this.otaSrvc.blueRibbonBought.subscribe(prcPaxes => this.blueRibbonBought = prcPaxes);
+
     }
 
 
@@ -75,9 +78,9 @@ export class PriceBoxComponent implements OnInit {
             }
         });
 
-       // console.log('length brb pricebox ' + this.boughtBlueRibbon.length);
+        console.log('length brb pricebox ' + this.blueRibbonBought.length);
     //    console.log(this.boughtBlueRibbon);
-      //  totalPrice += this.boughtBlueRibbon.length * this.blueRibbonPrice;
+       totalPrice += this.blueRibbonBought.length * this.blueRibbonPrice;
         return  totalPrice;
     }
 }

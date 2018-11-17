@@ -13,10 +13,16 @@ export class OtaService {
 
 
 
+    private blueRibbonBoughtSource = new BehaviorSubject( []);
+    blueRibbonBought = this.blueRibbonBoughtSource.asObservable();
+
 
     constructor() {
     }
 
+    getBlueRibbonBought(){
+        return this.blueRibbonBoughtSource.asObservable();
+    }
 
 
     getBlueRibbonPrice() {
