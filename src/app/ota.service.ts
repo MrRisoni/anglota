@@ -1,6 +1,7 @@
 import { Injectable} from '@angular/core';
 
 import {  BehaviorSubject  } from 'rxjs';
+import {  MealMdl  } from './models/MealMdl';
 
 
 @Injectable({
@@ -14,6 +15,14 @@ export class OtaService {
 
     private blueRibbonBoughtSource = new BehaviorSubject( []);
     blueRibbonBought = this.blueRibbonBoughtSource.asObservable();
+
+    vgml = new MealMdl('VGML', 'Vegeterian Meal');
+    chml = new MealMdl('CHML', 'Child Meal');
+    moml = new MealMdl('MOML', 'Muslim ');
+
+    private mealsArraySource  = new BehaviorSubject( [this.vgml, this.chml, this.moml]);
+    mealsArray = this.mealsArraySource.asObservable();
+
 
 
     constructor() {

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {PassengerMdl} from '../models/PassengerMdl';
+
+import { OtaService } from '../ota.service';
+
 
 @Component({
   selector: 'app-meals',
@@ -7,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MealsComponent implements OnInit {
 
-  constructor() { }
+    @Input()
+    pax: PassengerMdl;
 
-  ngOnInit() {
-  }
+    mealsArray: mealMdl[];
+
+
+
+    constructor(private otaSrvc: OtaService) {
+
+    }
+
+
+    ngOnInit() {
+        this.otaSrvc.mealsArray.subscribe(mlarr => this.mealsArray = mlarr);
+
+    }
 
 }
