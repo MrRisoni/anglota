@@ -3,6 +3,7 @@ import {PassengerMdl} from '../models/PassengerMdl';
 import {TicketMdl} from '../models/TicketMdl';
 
 import { OtaService } from '../ota.service';
+import {MealMdl} from '../models/MealMdl';
 
 
 @Component({
@@ -26,6 +27,7 @@ export class PriceBoxComponent implements OnInit {
     blueRibbonBought: number[];
 
 
+    mealBought: MealMdl[];
 
     constructor(private otaSrvc: OtaService) {
 
@@ -37,6 +39,7 @@ export class PriceBoxComponent implements OnInit {
         this.otaSrvc.blueRibbonPrice.subscribe(prc => this.blueRibbonPrice = prc);
         this.otaSrvc.blueRibbonBought.subscribe(prcPaxes => this.blueRibbonBought = prcPaxes);
 
+        this.otaSrvc.mealBought.subscribe(mealArr => this.mealBought = mealArr);
     }
 
 
@@ -68,6 +71,29 @@ export class PriceBoxComponent implements OnInit {
         return  this.blueRibbonBought.length;
     }
 
+
+    get MealLength(): number {
+        return this.mealBought.length;
+    }
+
+
+    calTotalMealsPrice() {
+        let sum = 0;
+        this.mealBought.forEach( (mlObj) => {
+            sum += mlObj.meal.price;
+            console.log('adding to sum ' + mlObj);
+            console.log(JSON.stringify(mlObj));
+            console.log(JSON.stringify(mlObj.meal));
+
+        });
+
+        return sum;
+    }
+
+    get totalMealsPrice() {
+        return this.calTotalMealsPrice();
+    }
+
     get totalPrice() {
 
         console.log('pricebix **********');
@@ -85,6 +111,7 @@ export class PriceBoxComponent implements OnInit {
         console.log('length brb pricebox ' + this.blueRibbonBought.length);
     //    console.log(this.boughtBlueRibbon);
        totalPrice += this.blueRibbonBought.length * this.blueRibbonPrice;
+       totalPrice += this.calTotalMealsPrice();
         return  totalPrice;
     }
 }

@@ -35,7 +35,7 @@
                         <div class="row">
                             <div class="col-8 offset-2">
                                         <p class="card-text">
-                                            <select class="form-control">
+                                            <select class="form-control" (change)="changeMeal($event, pax.id)">
                                             <option value=""></option>
                                                 <option *ngFor="let ml of mealsArray"
                                                         [value]="ml.ssr" >

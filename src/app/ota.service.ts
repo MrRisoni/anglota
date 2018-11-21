@@ -24,10 +24,28 @@ export class OtaService {
     mealsArray = this.mealsArraySource.asObservable();
 
 
+    private mealsBoughtSource = new BehaviorSubject( []);
+    mealBought = this.mealsBoughtSource.asObservable();
+
 
     constructor() {
     }
 
+
+    buyMeal(mealId, paxId)     {
+
+        console.log('meal id ' + mealId);
+
+        const mealData = this.mealsArraySource.getValue();
+        const ml = mealData.filter(ml => ml.ssr == mealId);
+
+        console.log(ml);
+
+
+        let rawVals = this.mealsBoughtSource.getValue();
+        rawVals.push({px: paxId, meal: ml[0]});
+        this.mealsBoughtSource.next(rawVals);
+    }
 
 
     buyBRB(paxId) {

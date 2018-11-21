@@ -1,7 +1,7 @@
 export class MealMdl {
     ssr: string;
     price: number;
-    title:string;
+    title: string;
 
     constructor(ssr, title ) {
         this.ssr = ssr;

@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {PassengerMdl} from '../models/PassengerMdl';
 
 import { OtaService } from '../ota.service';
+import {  MealMdl  } from './models/MealMdl';
 
 
 @Component({
@@ -25,6 +26,14 @@ export class MealsComponent implements OnInit {
 
     ngOnInit() {
         this.otaSrvc.mealsArray.subscribe(mlarr => this.mealsArray = mlarr);
+
+    }
+
+
+    changeMeal(event, id) {
+
+        this.otaSrvc.buyMeal(event.target.value, id);
+
 
     }
 
