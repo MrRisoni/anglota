@@ -17,6 +17,7 @@ import { BlueribbonComponent } from './blueribbon/blueribbon.component';
 import {OtaService} from './ota.service';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { BagLegComponent } from './bag-leg/bag-leg.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     BagsComponent,
     MealsComponent,
     FlexibleComponent,
-    BlueribbonComponent
+    BlueribbonComponent,
+    BagLegComponent
   ],
   imports: [
     BrowserModule,
