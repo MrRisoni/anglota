@@ -28,6 +28,11 @@
                 </div>
 
 
+                <div *ngFor="let mlData of mealBought">
+                    {{mlData.meal.ssr}}
+                </div>
+
+
 
                 <div class="row " *ngIf="BRBLength >0">
                     <div class="col-12">

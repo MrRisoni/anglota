@@ -35,16 +35,36 @@ export class OtaService {
     buyMeal(mealId, paxId)     {
 
         console.log('meal id ' + mealId);
+        let rawVals = this.mealsBoughtSource.getValue();
 
         const mealData = this.mealsArraySource.getValue();
         const ml = mealData.filter(ml => ml.ssr == mealId);
+        
+        if (mealId == '') {
 
-        console.log(ml);
+            let newVals = rawVals.filter(mlObj => mlObj.px != paxId);
+
+            this.mealsBoughtSource.next(newVals);
+        }
+        else {
 
 
-        let rawVals = this.mealsBoughtSource.getValue();
-        rawVals.push({px: paxId, meal: ml[0]});
-        this.mealsBoughtSource.next(rawVals);
+            // check if paxId has already bought a meal
+            let alreadyHasMeal = false;
+            for (let x = 0; x < rawVals.length; x++) {
+                if (rawVals[x].px == paxId) {
+                    alreadyHasMeal = true;
+                    rawVals[x].meal = ml[0];
+                }
+            }
+
+            if (alreadyHasMeal === false) {
+                rawVals.push({px: paxId, meal: ml[0]});
+            }
+
+
+            this.mealsBoughtSource.next(rawVals);
+        }
     }
 
 

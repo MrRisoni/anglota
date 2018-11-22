@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PassengerMdl} from '../models/PassengerMdl';
+import {  MealMdl  } from '../models/MealMdl';
 
 import { OtaService } from '../ota.service';
-import {  MealMdl  } from './models/MealMdl';
 
 
 @Component({
