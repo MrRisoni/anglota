@@ -27,7 +27,7 @@ export class PriceBoxComponent implements OnInit {
     blueRibbonBought: number[];
 
 
-    mealBought: MealMdl[];
+    mealBought: any[];
 
     constructor(private otaSrvc: OtaService) {
 
