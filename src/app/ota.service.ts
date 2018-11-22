@@ -39,7 +39,7 @@ export class OtaService {
 
         const mealData = this.mealsArraySource.getValue();
         const ml = mealData.filter(ml => ml.ssr == mealId);
-        
+
         if (mealId == '') {
 
             let newVals = rawVals.filter(mlObj => mlObj.px != paxId);
