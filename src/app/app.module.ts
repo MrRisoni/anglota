@@ -16,6 +16,9 @@ import { FlexibleComponent } from './flexible/flexible.component';
 import { BlueribbonComponent } from './blueribbon/blueribbon.component';
 import {OtaService} from './ota.service';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +36,8 @@ import {OtaService} from './ota.service';
     BlueribbonComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+      NgbModule
   ],
   providers: [OtaService],
   bootstrap: [AppComponent]

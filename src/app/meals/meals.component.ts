@@ -15,7 +15,7 @@ export class MealsComponent implements OnInit {
     @Input()
     pax: PassengerMdl;
 
-    mealsArray: mealMdl[];
+    mealsArray: MealMdl[];
 
 
 
