@@ -18,6 +18,7 @@ import {OtaService} from './ota.service';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BagLegComponent } from './bag-leg/bag-leg.component';
+import { BagOptionComponent } from './bag-option/bag-option.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { BagLegComponent } from './bag-leg/bag-leg.component';
     MealsComponent,
     FlexibleComponent,
     BlueribbonComponent,
-    BagLegComponent
+    BagLegComponent,
+    BagOptionComponent
   ],
   imports: [
     BrowserModule,

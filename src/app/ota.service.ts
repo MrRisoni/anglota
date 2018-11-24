@@ -4,6 +4,7 @@ import {  BehaviorSubject  } from 'rxjs';
 import {  MealMdl  } from './models/MealMdl';
 import {PassengerMdl} from './models/PassengerMdl';
 import {TicketMdl} from './models/TicketMdl';
+import {BagMdl} from './models/BagMdl';
 
 
 @Injectable({
@@ -18,12 +19,12 @@ export class OtaService {
     passengerArray = this.passengerArraySource.asObservable();
 
 
-    private bagPriceSource = new BehaviorSubject(15);
-    bagPrice = this.bagPriceSource.asObservable();
+    bg1 = new BagMdl('XBAG', 15.00, '20');
+    bg2 = new BagMdl('XLBAG', 25.00, '30');
+    bg3 = new BagMdl('XXLBAG', 60.00, '45');
 
-    boughtBagsSource = new BehaviorSubject([]);
-    boughtBags = this.boughtBagsSource.asObservable();
-
+    private bagSSRArraySource = new BehaviorSubject([this.bg1, this.bg2, this.bg3]);
+    bagSSRArray = this.bagSSRArraySource.asObservable();
 
     //
     private blueRibbonPriceSource = new BehaviorSubject( 5.5);
@@ -111,10 +112,21 @@ export class OtaService {
     }
 
 
-    buyBug(paxId) {
-        let rawVals = this.boughtBagsSource.getValue();
-        rawVals.push(paxId);
-        this.boughtBagsSource.next(rawVals);
+    buyBug(paxId, ssr, legId) {
+        console.log('service bug bag for pax ' + paxId + ' ssr ' + ssr);
+        let rawPaxes = this.passengerArraySource.getValue();
+        rawPaxes.forEach( (px) => {
+            if (px.id == paxId) {
+                if (legId == 0) {
+                    px.bagArray.departure.push(ssr);
+                }
+                else {
+                    px.bagArray.return.push(ssr);
+                }
+            }
+        });
+
+        this.passengerArraySource.next(rawPaxes);
     }
 
 
