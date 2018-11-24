@@ -112,12 +112,6 @@ body, input[type="text"], option, select
     margin-right: 5px;
 }
 
-.mybtn {
-    padding: 3px 5px;
-    font-size: 5px;
-    border-radius: 2px;
-    margin-right: 5px;
-}
 
 
 .pricebox h4 {
@@ -181,37 +175,7 @@ body, input[type="text"], option, select
     box-shadow: 10px 10px 97px 13px rgba(0,0,0,0.75);
 }
 
-.seatButton {
-    height: 15px;
-    margin-right: 3px;
-    margin-bottom: 5px;
-    border-radius: 3px 3px 3px 3px;
-    -moz-border-radius: 3px 3px 3px 3px;
-    -webkit-border-radius: 3px 3px 3px 3px;
-}
 
-.seatAvailable {
-    background-color : #292aff;
-}
-
-.seatChosen {
-    background-color : #00ff03;
-}
-
-.seatTaken {
-    background-color: #ece7ff;
-}
-
-.seatRowHeader {
-    text-align: center;
-    height: 45px;
-    background-color: #feffd7;
-
-}
-
-.seatLetterGroup {
-    margin-right:8%;
-}
 
 
 .busSegment {
