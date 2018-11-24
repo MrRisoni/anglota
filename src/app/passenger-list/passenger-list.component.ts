@@ -1,6 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 
 import {PassengerMdl} from '../models/PassengerMdl';
+import { OtaService } from '../ota.service';
 
 
 @Component({
@@ -10,35 +11,19 @@ import {PassengerMdl} from '../models/PassengerMdl';
 })
 export class PassengerListComponent implements OnInit {
 
-
-    @Input()
     passengerArray: PassengerMdl[];
 
-    @Input()
-    blueRibbonPrice: number;
+    constructor(private otaSrvc: OtaService) {
 
-    @Input()
-    boughtBlueRibbon: any[];
-
-    constructor() {
     }
 
     ngOnInit() {
+        this.otaSrvc.passengerArray.subscribe(paxArr => this.passengerArray = paxArr);
+
     }
 
 
     onClickAddPassenger() {
-        console.log('Adding passenger');
-        const newId = this.passengerArray.length + 1;
-        let newHumanId = 0;
-        this.passengerArray.forEach((pax) => {
-            if (pax.active === true) {
-                newHumanId++;
-            }
-        });
-        newHumanId++;
-        const newPax = new PassengerMdl(newId, newHumanId);
-        this.passengerArray.push(newPax);
-
+        this.otaSrvc.appendPassenger();
     }
 }

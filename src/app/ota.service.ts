@@ -2,12 +2,20 @@ import { Injectable} from '@angular/core';
 
 import {  BehaviorSubject  } from 'rxjs';
 import {  MealMdl  } from './models/MealMdl';
+import {PassengerMdl} from './models/PassengerMdl';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class OtaService {
+
+    pax1 = new PassengerMdl(0, 1);
+    pax2 = new PassengerMdl(1, 2);
+
+    private passengerArraySource = new BehaviorSubject([this.pax1, this.pax2]);
+    passengerArray = this.passengerArraySource.asObservable();
+
 
     private blueRibbonPriceSource = new BehaviorSubject( 5.5);
     blueRibbonPrice = this.blueRibbonPriceSource.asObservable();
@@ -31,8 +39,25 @@ export class OtaService {
     constructor() {
     }
 
+    appendPassenger() {
+        let rawVals = this.passengerArraySource.getValue();
 
-    buyMeal(mealId, paxId)     {
+        const newId = rawVals.length + 1;
+        let newHumanId = 0;
+        rawVals.forEach((pax) => {
+            if (pax.active === true) {
+                newHumanId++;
+            }
+        });
+        newHumanId++;
+        const newPax = new PassengerMdl(newId, newHumanId);
+        rawVals.push(newPax);
+
+        this.passengerArraySource.next(rawVals);
+    }
+
+
+    buyMeal(mealId, paxId)  {
 
         console.log('meal id ' + mealId);
         let rawVals = this.mealsBoughtSource.getValue();
