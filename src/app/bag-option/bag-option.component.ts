@@ -37,4 +37,9 @@ export class BagOptionComponent implements OnInit {
         this.otaSrvc.buyBug(this.pax.id, this.bag.ssr, this.leg);
     }
 
+
+    get BagsNum() {
+        return this.pax.bagArray.departure.filter(ssr => ssr == this.bag.ssr).length;
+    }
+
 }
