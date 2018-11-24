@@ -3,6 +3,7 @@ import { Injectable} from '@angular/core';
 import {  BehaviorSubject  } from 'rxjs';
 import {  MealMdl  } from './models/MealMdl';
 import {PassengerMdl} from './models/PassengerMdl';
+import {TicketMdl} from './models/TicketMdl';
 
 
 @Injectable({
@@ -34,6 +35,15 @@ export class OtaService {
 
     private mealsBoughtSource = new BehaviorSubject( []);
     mealBought = this.mealsBoughtSource.asObservable();
+
+
+
+    tkt1 = new TicketMdl('ADT', 'Y', 56);
+    tkt2 = new TicketMdl('CNN', 'Y', 45);
+    tkt3 = new TicketMdl('INF', 'Y', 15);
+
+    private ticketPricesSource = new BehaviorSubject( [this.tkt1, this.tkt2 , this.tkt3]);
+    ticketPrices = this.ticketPricesSource.asObservable();
 
 
     constructor() {

@@ -13,8 +13,6 @@ import {MealMdl} from '../models/MealMdl';
 })
 export class PriceBoxComponent implements OnInit {
 
-
-    @Input()
     ticketPrices: TicketMdl[];
 
     paxGroups: any;
@@ -37,6 +35,8 @@ export class PriceBoxComponent implements OnInit {
 
     ngOnInit() {
         this.otaSrvc.passengerArray.subscribe(paxArr => this.passengerArray = paxArr);
+
+        this.otaSrvc.ticketPrices.subscribe(tktPrc => this.ticketPrices = tktPrc);
 
 
         this.otaSrvc.blueRibbonPrice.subscribe(prc => this.blueRibbonPrice = prc);
