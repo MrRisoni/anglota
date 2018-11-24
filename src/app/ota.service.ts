@@ -18,6 +18,14 @@ export class OtaService {
     passengerArray = this.passengerArraySource.asObservable();
 
 
+    private bagPriceSource = new BehaviorSubject(15);
+    bagPrice = this.bagPriceSource.asObservable();
+
+    boughtBagsSource = new BehaviorSubject([]);
+    boughtBags = this.boughtBagsSource.asObservable();
+
+
+    //
     private blueRibbonPriceSource = new BehaviorSubject( 5.5);
     blueRibbonPrice = this.blueRibbonPriceSource.asObservable();
 
@@ -100,6 +108,18 @@ export class OtaService {
 
             this.mealsBoughtSource.next(rawVals);
         }
+    }
+
+
+    buyBug(paxId) {
+        let rawVals = this.boughtBagsSource.getValue();
+        rawVals.push(paxId);
+        this.boughtBagsSource.next(rawVals);
+    }
+
+
+    removeBug(paxId){
+
     }
 
 

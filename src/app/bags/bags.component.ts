@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {PassengerMdl} from '../models/PassengerMdl';
 
 @Component({
-  selector: 'app-bags',
-  templateUrl: './bags.component.html',
-  styleUrls: ['./bags.component.css']
+    selector: 'app-bags',
+    templateUrl: './bags.component.html',
+    styleUrls: ['./bags.component.css']
 })
 export class BagsComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
-  }
+    @Input()
+    pax: PassengerMdl;
+
+    constructor() {
+    }
+
+    ngOnInit() {
+    }
 
 }
