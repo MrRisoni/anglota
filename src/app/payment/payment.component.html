@@ -3,15 +3,15 @@
         <div class="card">
             <div class="card-header bg-light">
                 <div class="row">
-                    <div class="col-6">Select Payment Method</div>
-                    <div class="col-2"><i class="fas fa-credit-card"></i></div>
+                    <div class="col-10">Select Payment Method</div>
                 </div>
             </div>
+
             <div class="card">
                 <div class="card-header bg-light">
                     <div class="row">
-                        <div class="col-3"><b>Credit Card</b></div>
-                        <div class="col-2 offset-7">
+                        <div class="col-7"><b>Credit Card</b></div>
+                        <div class="col-2">
                             <button class="btn btn-sm btn-dark btn-block btnToggle" data-toggle="collapse"
                                     data-target="#creditCardCollapse" aria-expanded="false"
                                     aria-controls="collapseExample">Toggle
@@ -19,23 +19,33 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="card-body collapse show" id="creditCardCollapse">
                     <div class="row">
-                        <div class="col-4"><select class="form-control">
+                        <div class="col-6 offset-3"><select class="form-control">
                             <option></option>
                             <option value="">Visa Debit</option>
                             <option value="">Visa Credit</option>
                             <option value="">Mastercard Debit</option>
                             <option value="">Mastercard Credit</option>
                         </select></div>
-                        <div class="col-5"><input type="text" placeholder="Card Number" class="form-control"></div>
                     </div>
                     <br>
+
                     <div class="row">
-                        <div class="col-4"><input type="text" placeholder="Bank Name" class="form-control"></div>
-                        <div class="col-6"><input type="text" placeholder="Card Holder" class="form-control"></div>
-                        <div class="col-2"><input type="text" placeholder="CVV2" class="form-control"></div>
+                        <div class="col-12"><input type="text" placeholder="Card Number" class="form-control"></div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-4 offset-4"><input type="text" placeholder="CVV2" class="form-control"></div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-12"><input type="text" placeholder="Card Holder" class="form-control"></div>
+                    </div>
+
+
                     <br>
                     <div class="row">
                         <div class="col-4"></div>
@@ -45,11 +55,12 @@
                     </div>
                 </div>
             </div>
+
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col-3"><b>Sofort</b></div>
-                        <div class="col-2 offset-7">
+                        <div class="col-7"><b>Sofort</b></div>
+                        <div class="col-2">
                             <button class="btn btn-sm btn-dark btn-block btnToggle" data-toggle="collapse"
                                     data-target="#payMethodCollapsesofort" aria-expanded="false"
                                     aria-controls="collapseExample">Toggle
@@ -59,20 +70,25 @@
                 </div>
                 <div class="card-body paymentLogo collapse" id="payMethodCollapsesofort">
                     <div class="row">
-                        <div class="col-4"><img
+                        <div class="col-4 offset-3"><img
                                 src="https://pbs.twimg.com/profile_images/917661388822208512/4XX3jcH5_400x400.jpg">
                         </div>
-                        <div class="col-4">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4 offset-2">
                             <button class="btn btn-success">Complete Payment!</button>
                         </div>
                     </div>
                 </div>
             </div>
+
+
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col-3"><b>Ideal</b></div>
-                        <div class="col-2 offset-7">
+                        <div class="col-7"><b>Ideal</b></div>
+                        <div class="col-2">
                             <button class="btn btn-sm btn-dark btn-block btnToggle" data-toggle="collapse"
                                     data-target="#payMethodCollapseideal" aria-expanded="false"
                                     aria-controls="collapseExample">Toggle
@@ -82,20 +98,26 @@
                 </div>
                 <div class="card-body paymentLogo collapse" id="payMethodCollapseideal">
                     <div class="row">
-                        <div class="col-4"><img
+                        <div class="col-4 offset-3"><img
                                 src="https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/0013/5311/brand.gif">
                         </div>
-                        <div class="col-4">
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-4 offset-2">
                             <button class="btn btn-success">Complete Payment!</button>
                         </div>
                     </div>
                 </div>
             </div>
+
+
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col-3"><b>Paypal</b></div>
-                        <div class="col-2 offset-7">
+                        <div class="col-7"><b>Paypal</b></div>
+                        <div class="col-2">
                             <button class="btn btn-sm btn-dark btn-block btnToggle" data-toggle="collapse"
                                     data-target="#payMethodCollapsepaypal" aria-expanded="false"
                                     aria-controls="collapseExample">Toggle
@@ -103,12 +125,16 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="card-body paymentLogo collapse" id="payMethodCollapsepaypal">
                     <div class="row">
-                        <div class="col-4"><img
+                        <div class="col-4 offset-3"><img
                                 src="http://freevectorlogo.net/wp-content/uploads/2016/10/paypal-logo-vector-400x400.png">
                         </div>
-                        <div class="col-4">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4 offset-2">
                             <button class="btn btn-success">Complete Payment!</button>
                         </div>
                     </div>
