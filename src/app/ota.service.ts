@@ -74,6 +74,9 @@ export class OtaService {
     getPaxGroups() {
         let paxGroups = [{age: 'INF', cabin: 'Y', count: 0}];
 
+        let paxArray = this.passengerArraySource.getValue();
+
+
         ['ADT', 'CNN'].forEach((age) => {
             ['Y', 'W', 'C', 'F'].forEach((cl) => {
                 paxGroups.push({age: age, cabin: cl, count: 0});
@@ -81,7 +84,7 @@ export class OtaService {
         });
 
 
-        this.passengerArray.forEach( (px) => {
+        paxArray.forEach( (px) => {
             if (px.active === true) {
                 paxGroups.forEach( (pg) => {
                     if ((pg.age === px.ageGroup) && (px.cabinClass === pg.cabin)) {
