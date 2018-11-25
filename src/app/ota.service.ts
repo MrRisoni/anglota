@@ -38,6 +38,8 @@ export class OtaService {
     private mealsArraySource  = new BehaviorSubject( [this.vgml, this.chml, this.moml]);
     mealsArray = this.mealsArraySource.asObservable();
 
+    private paxGroupsSource = new BehaviorSubject([]);
+    paxGroups = this.paxGroupsSource.asObservable();
 
 
     tkt1 = new TicketMdl('ADT', 'Y', 56);
@@ -67,6 +69,32 @@ export class OtaService {
 
         this.passengerArraySource.next(rawVals);
     }
+
+
+    getPaxGroups() {
+        let paxGroups = [{age: 'INF', cabin: 'Y', count: 0}];
+
+        ['ADT', 'CNN'].forEach((age) => {
+            ['Y', 'W', 'C', 'F'].forEach((cl) => {
+                paxGroups.push({age: age, cabin: cl, count: 0});
+            });
+        });
+
+
+        this.passengerArray.forEach( (px) => {
+            if (px.active === true) {
+                paxGroups.forEach( (pg) => {
+                    if ((pg.age === px.ageGroup) && (px.cabinClass === pg.cabin)) {
+                        pg.count++;
+                    }
+                });
+            }
+        });
+
+        this.paxGroupsSource.next(paxGroups);
+
+    }
+
 
 
     buyMeal(mealSSR, paxId)  {
