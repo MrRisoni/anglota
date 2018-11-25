@@ -39,10 +39,6 @@ export class OtaService {
     mealsArray = this.mealsArraySource.asObservable();
 
 
-    private mealsBoughtSource = new BehaviorSubject( []);
-    mealBought = this.mealsBoughtSource.asObservable();
-
-
 
     tkt1 = new TicketMdl('ADT', 'Y', 56);
     tkt2 = new TicketMdl('CNN', 'Y', 45);
@@ -73,39 +69,20 @@ export class OtaService {
     }
 
 
-    buyMeal(mealId, paxId)  {
+    buyMeal(mealSSR, paxId)  {
 
-        console.log('meal id ' + mealId);
-        let rawVals = this.mealsBoughtSource.getValue();
+        console.log('meal id ' + mealSSR);
+        let rawPaxes = this.passengerArraySource.getValue();
 
-        const mealData = this.mealsArraySource.getValue();
-        const ml = mealData.filter(ml => ml.ssr == mealId);
-
-        if (mealId == '') {
-
-            let newVals = rawVals.filter(mlObj => mlObj.px != paxId);
-
-            this.mealsBoughtSource.next(newVals);
-        }
-        else {
-
-
-            // check if paxId has already bought a meal
-            let alreadyHasMeal = false;
-            for (let x = 0; x < rawVals.length; x++) {
-                if (rawVals[x].px == paxId) {
-                    alreadyHasMeal = true;
-                    rawVals[x].meal = ml[0];
-                }
+        rawPaxes.forEach( (px) => {
+            if (px.id == paxId) {
+                px.meal = mealSSR;
             }
+        });
 
-            if (alreadyHasMeal === false) {
-                rawVals.push({px: paxId, meal: ml[0]});
-            }
+        this.passengerArraySource.next(rawPaxes);
 
 
-            this.mealsBoughtSource.next(rawVals);
-        }
     }
 
 

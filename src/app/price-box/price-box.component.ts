@@ -24,9 +24,6 @@ export class PriceBoxComponent implements OnInit {
 
     blueRibbonPrice: number;
 
-
-    mealBought: any[];
-
     constructor(private otaSrvc: OtaService) {
 
     }
@@ -38,8 +35,6 @@ export class PriceBoxComponent implements OnInit {
         this.otaSrvc.ticketPrices.subscribe(tktPrc => this.ticketPrices = tktPrc);
 
         this.otaSrvc.blueRibbonPrice.subscribe(prc => this.blueRibbonPrice = prc);
-
-        this.otaSrvc.mealBought.subscribe(mealArr => this.mealBought = mealArr);
 
         this.otaSrvc.bagSSRArray.subscribe(data => this.bagSSRs = data);
 
@@ -124,21 +119,12 @@ export class PriceBoxComponent implements OnInit {
     }
 
     get MealLength(): number {
-        return this.mealBought.length;
+       return this.passengerArray.filter(px => px.meal !== '').length;
     }
 
 
     calTotalMealsPrice() {
-        let sum = 0;
-        this.mealBought.forEach((mlObj) => {
-            sum += mlObj.meal.price;
-            console.log('adding to sum ' + mlObj);
-            console.log(JSON.stringify(mlObj));
-            console.log(JSON.stringify(mlObj.meal));
-
-        });
-
-        return sum;
+        return this.passengerArray.filter(px => px.meal !== '').length * 5.00;
     }
 
     get totalMealsPrice() {
