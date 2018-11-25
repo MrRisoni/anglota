@@ -8,6 +8,7 @@ export class PassengerMdl {
     surname: string;
     gender: string;
     dob: string;
+    hasBlueRibbon: boolean;
     bagArray: {
             departure: string[],
             return: string[]
@@ -27,5 +28,6 @@ export class PassengerMdl {
         this.active = true;
         this.humanId = human;
         this.bagArray = { departure: [], return: []};
+        this.hasBlueRibbon = false;
     }
 }

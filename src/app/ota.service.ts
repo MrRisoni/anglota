@@ -31,9 +31,6 @@ export class OtaService {
     blueRibbonPrice = this.blueRibbonPriceSource.asObservable();
 
 
-    private blueRibbonBoughtSource = new BehaviorSubject( []);
-    blueRibbonBought = this.blueRibbonBoughtSource.asObservable();
-
     vgml = new MealMdl('VGML', 'Vegeterian Meal');
     chml = new MealMdl('CHML', 'Child Meal');
     moml = new MealMdl('MOML', 'Muslim ');
@@ -136,19 +133,26 @@ export class OtaService {
 
 
     buyBRB(paxId) {
-        console.log('service buy');
-        console.log(this.blueRibbonBoughtSource.getValue());
-        let rawVals = this.blueRibbonBoughtSource.getValue();
-        rawVals.push(paxId);
-        this.blueRibbonBoughtSource.next(rawVals);
+
+        let rawPaxes = this.passengerArraySource.getValue();
+        rawPaxes.forEach((px) => {
+            if (px.id == paxId) {
+                px.hasBlueRibbon = true;
+            }
+        });
+
+        this.passengerArraySource.next(rawPaxes);
 
     }
 
     removeBRB(paxId) {
-        console.log('service removeBRB');
-        console.log(this.blueRibbonBoughtSource.getValue());
+        let rawPaxes = this.passengerArraySource.getValue();
+        rawPaxes.forEach((px) => {
+            if (px.id == paxId) {
+                px.hasBlueRibbon = false;
+            }
+        });
 
-        let rawVals = this.blueRibbonBoughtSource.getValue();
-        this.blueRibbonBoughtSource.next(rawVals.filter(pxid => pxid != paxId));
+        this.passengerArraySource.next(rawPaxes);
     }
 }

@@ -23,7 +23,6 @@ export class PriceBoxComponent implements OnInit {
     bagSSRs: BagMdl[];
 
     blueRibbonPrice: number;
-    blueRibbonBought: number[];
 
 
     mealBought: any[];
@@ -39,7 +38,6 @@ export class PriceBoxComponent implements OnInit {
         this.otaSrvc.ticketPrices.subscribe(tktPrc => this.ticketPrices = tktPrc);
 
         this.otaSrvc.blueRibbonPrice.subscribe(prc => this.blueRibbonPrice = prc);
-        this.otaSrvc.blueRibbonBought.subscribe(prcPaxes => this.blueRibbonBought = prcPaxes);
 
         this.otaSrvc.mealBought.subscribe(mealArr => this.mealBought = mealArr);
 
@@ -73,7 +71,7 @@ export class PriceBoxComponent implements OnInit {
     }
 
     get BRBLength(): number {
-        return this.blueRibbonBought.length;
+        return this.calcBlueRibbonLength();
     }
 
     get bagPriceTotal(): number {
@@ -108,6 +106,10 @@ export class PriceBoxComponent implements OnInit {
         });
 
         return bagCost;
+    }
+
+    calcBlueRibbonLength(): number {
+        return this.passengerArray.filter(px => px.hasBlueRibbon === true).length;
     }
 
     get BagsLength(): number {
@@ -157,8 +159,7 @@ export class PriceBoxComponent implements OnInit {
             }
         });
 
-        console.log('length brb pricebox ' + this.blueRibbonBought.length);
-        totalPrice += this.blueRibbonBought.length * this.blueRibbonPrice;
+        totalPrice += this.calcBlueRibbonLength() * this.blueRibbonPrice;
         totalPrice += this.getTotalBagPrice();
 
         totalPrice += this.calTotalMealsPrice();

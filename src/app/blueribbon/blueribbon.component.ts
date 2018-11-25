@@ -32,13 +32,7 @@ export class BlueribbonComponent implements OnInit {
 
     changeBRB(event, id) {
 
-        if (event.target.value == 1) {
-            this.otaSrvc.buyBRB(id);
-        }
-        else {
-            this.otaSrvc.removeBRB(id);
-
-        }
+        (event.target.value == 1) ? this.otaSrvc.buyBRB(id) : this.otaSrvc.removeBRB(id);
     }
 
 }
