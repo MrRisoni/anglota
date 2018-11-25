@@ -20,6 +20,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BagLegComponent } from './bag-leg/bag-leg.component';
 import { BagOptionComponent } from './bag-option/bag-option.component';
 import { SeatsRowComponent } from './seats-row/seats-row.component';
+import { SeatsColumnComponent } from './seats-column/seats-column.component';
+import { SingleSeatComponent } from './single-seat/single-seat.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { SeatsRowComponent } from './seats-row/seats-row.component';
     BlueribbonComponent,
     BagLegComponent,
     BagOptionComponent,
-    SeatsRowComponent
+    SeatsRowComponent,
+    SeatsColumnComponent,
+    SingleSeatComponent
   ],
   imports: [
     BrowserModule,
