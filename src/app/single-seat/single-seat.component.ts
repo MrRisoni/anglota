@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-single-seat',
-  templateUrl: './single-seat.component.html',
-  styleUrls: ['./single-seat.component.css']
+    selector: 'app-single-seat',
+    templateUrl: './single-seat.component.html',
+    styleUrls: ['./single-seat.component.css']
 })
 export class SingleSeatComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
-  }
+    @Input()
+    rowId: number;
+
+    @Input()
+    col: number;
+
+    constructor() {
+    }
+
+    ngOnInit() {
+    }
 
 }

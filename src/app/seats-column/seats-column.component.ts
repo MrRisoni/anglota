@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
-  selector: 'app-seats-column',
-  templateUrl: './seats-column.component.html',
-  styleUrls: ['./seats-column.component.css']
+    selector: 'app-seats-column',
+    templateUrl: './seats-column.component.html',
+    styleUrls: ['./seats-column.component.css']
 })
 export class SeatsColumnComponent implements OnInit {
 
-  constructor() { }
+    @Input()
+    col: number;
 
-  ngOnInit() {
-  }
+    constructor() {
+    }
+
+    ngOnInit() {
+    }
 
 }
