@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 
 import { PassengerMdl } from '../models/PassengerMdl';
 import {OtaService} from '../ota.service';
+import {CabinMdl} from '../models/CabinMdl';
 
 
 @Component({
@@ -19,14 +20,15 @@ export class PassengerComponent implements OnInit {
     pax: PassengerMdl;
 
 
+    cabins: CabinMdl[];
 
 
     constructor(private otaSrvc: OtaService) {
     }
 
 
-    ngOnInit(){
-
+    ngOnInit() {
+        this.otaSrvc.cabins.subscribe(data => this.cabins = data);
     }
 
 

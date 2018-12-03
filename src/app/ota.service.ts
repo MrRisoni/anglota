@@ -5,6 +5,7 @@ import {  MealMdl  } from './models/MealMdl';
 import {PassengerMdl} from './models/PassengerMdl';
 import {TicketMdl} from './models/TicketMdl';
 import {BagMdl} from './models/BagMdl';
+import {CabinMdl} from './models/CabinMdl';
 
 
 @Injectable({
@@ -14,6 +15,15 @@ export class OtaService {
 
     pax1 = new PassengerMdl(0, 1);
     pax2 = new PassengerMdl(1, 2);
+
+    Yankee = new CabinMdl('Y', 'Economy');
+    Whiskey = new CabinMdl('W', 'Premium Economy');
+    Charile = new CabinMdl('C', 'Bussiness ');
+    Fox = new CabinMdl('F', 'First Class');
+
+
+    private cabinSource = new BehaviorSubject([this.Yankee, this.Whiskey, this.Charile, this.Fox]);
+    cabins = this.cabinSource.asObservable();
 
     private passengerArraySource = new BehaviorSubject([this.pax1, this.pax2]);
     passengerArray = this.passengerArraySource.asObservable();

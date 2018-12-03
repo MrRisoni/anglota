@@ -28,14 +28,9 @@
 
                 <div class="row">
 
-                    <div class="col-10 offset-1">
+                    <div class="col-10 offset-1" *ngIf="pax.ageGroup !='INF'">
                         <select class="form-control" (change)="changeCabinClass($event, pax.id)">
-                            <option value="Y">Economy</option>
-                             <div *ngIf="pax.ageGroup != 'INF'">
-                                <option value="W">Premium Economy</option>
-                                <option value="C">Business</option>
-                                <option value="F">First Class</option>
-                            </div>
+                            <option *ngFor="let c of cabins" value="{{c.code}}">{{c.title}}</option>
                         </select>
                     </div>
 
