@@ -163,4 +163,17 @@ export class OtaService {
 
         this.passengerArraySource.next(rawPaxes);
     }
+
+
+    changeAge(newAge, paxId)
+    {
+        let rawPaxes = this.passengerArraySource.getValue();
+        rawPaxes.forEach((px) => {
+            if (px.id == paxId) {
+                px.ageGroup = newAge;
+            }
+        });
+
+        this.passengerArraySource.next(rawPaxes);
+    }
 }

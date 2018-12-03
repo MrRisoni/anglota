@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-10 offset-1">
 
-                        <select class="form-control">
+                        <select class="form-control" (change)="changeAge($event, pax.id)">
                             <option value="">Select Type</option>
                             <option value="ADT">Adult</option>
                             <option value="CNN">Child</option>
@@ -29,11 +29,13 @@
                 <div class="row">
 
                     <div class="col-10 offset-1">
-                        <select class="form-control">
+                        <select class="form-control" (change)="changeCabinClass($event, pax.id)">
                             <option value="Y">Economy</option>
-                            <option value="W">Premium Economy</option>
-                            <option value="C">Business</option>
-                            <option value="F">First Class</option>
+                             <div *ngIf="pax.ageGroup != 'INF'">
+                                <option value="W">Premium Economy</option>
+                                <option value="C">Business</option>
+                                <option value="F">First Class</option>
+                            </div>
                         </select>
                     </div>
 

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 import { PassengerMdl } from '../models/PassengerMdl';
+import {OtaService} from '../ota.service';
 
 
 @Component({
@@ -20,12 +21,19 @@ export class PassengerComponent implements OnInit {
 
 
 
-    constructor() {
-
+    constructor(private otaSrvc: OtaService) {
     }
+
 
     ngOnInit(){
 
+    }
+
+
+    changeAge(event, paxId)
+    {
+        console.log('change age for ' + event.target.value);
+        this.otaSrvc.changeAge(event.target.value, paxId);
     }
 
 
