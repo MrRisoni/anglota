@@ -1,6 +1,8 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+
+import {AppRoutingModule} from './app-routing.module';
+
 
 import {AppComponent} from './app.component';
 import {PriceBoxComponent} from './price-box/price-box.component';
@@ -28,12 +30,11 @@ import {FlightLegComponent} from './flight-leg/flight-leg.component';
 import {FlightSegmentsComponent} from './flight-segments/flight-segments.component';
 import {ManageBookingComponent} from './manage-booking/manage-booking.component';
 import {ManagePassengersComponent} from './manage-passengers/manage-passengers.component';
+import { TripComponent } from './trip/trip.component';
+import { LegComponent } from './leg/leg.component';
+import { SegmentComponent } from './segment/segment.component';
+import { MainAppComponent } from './main-app/main-app.component';
 
-
-
-const appRoutes: Routes = [
-    { path: 'manage',      component: ManageBookingComponent }
-];
 
 
 @NgModule({
@@ -60,11 +61,17 @@ const appRoutes: Routes = [
         FlightLegComponent,
         FlightSegmentsComponent,
         ManageBookingComponent,
-        ManagePassengersComponent
+        ManagePassengersComponent,
+        TripComponent,
+        LegComponent,
+        SegmentComponent,
+        MainAppComponent
     ],
     imports: [
         BrowserModule,
-        NgbModule
+        NgbModule,
+        AppRoutingModule
+
     ],
     providers: [OtaService],
     bootstrap: [AppComponent]
