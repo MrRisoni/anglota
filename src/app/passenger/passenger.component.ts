@@ -32,10 +32,14 @@ export class PassengerComponent implements OnInit {
     }
 
 
-    changeAge(event, paxId)
-    {
+    changeAge(event, paxId) {
         console.log('change age for ' + event.target.value);
         this.otaSrvc.changeAge(event.target.value, paxId);
+    }
+
+
+    changeCabinClass(event, paxId) {
+        this.otaSrvc.changeCabinClass(event.target.value, paxId);
     }
 
 

@@ -29,9 +29,9 @@ export class OtaService {
     passengerArray = this.passengerArraySource.asObservable();
 
 
-    bg1 = new BagMdl('XBAG', 15.00, '20');
-    bg2 = new BagMdl('XLBAG', 25.00, '30');
-    bg3 = new BagMdl('XXLBAG', 60.00, '45');
+    bg1 = new BagMdl('XBAG', 15.00, '20', ['Y']);
+    bg2 = new BagMdl('XLBAG', 25.00, '30', ['W', 'C', 'F']);
+    bg3 = new BagMdl('XXLBAG', 60.00, '45', [ 'C', 'F']);
 
     private bagSSRArraySource = new BehaviorSubject([this.bg1, this.bg2, this.bg3]);
     bagSSRArray = this.bagSSRArraySource.asObservable();
@@ -175,12 +175,23 @@ export class OtaService {
     }
 
 
-    changeAge(newAge, paxId)
-    {
+    changeAge(newAge, paxId) {
         let rawPaxes = this.passengerArraySource.getValue();
         rawPaxes.forEach((px) => {
             if (px.id == paxId) {
                 px.ageGroup = newAge;
+            }
+        });
+
+        this.passengerArraySource.next(rawPaxes);
+    }
+
+
+    changeCabinClass(newlass, paxId) {
+        let rawPaxes = this.passengerArraySource.getValue();
+        rawPaxes.forEach((px) => {
+            if (px.id == paxId) {
+                px.cabinClass = newlass;
             }
         });
 

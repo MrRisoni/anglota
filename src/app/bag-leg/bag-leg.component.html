@@ -10,7 +10,9 @@
 
 
     <div *ngFor="let bagssr of bagSSRs">
-        <app-bag-option [pax]="pax" [bag]="bagssr" [leg]="0"></app-bag-option>
+        <div *ngIf="bagssr.classes.indexOf(pax.cabinClass) !== -1">
+            <app-bag-option [pax]="pax" [bag]="bagssr" [leg]="0"></app-bag-option>
+        </div>
     </div>
 
 </div>
