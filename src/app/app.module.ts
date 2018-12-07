@@ -32,6 +32,7 @@ import {ManageBookingComponent} from './manage-booking/manage-booking.component'
 import {ManagePassengersComponent} from './manage-passengers/manage-passengers.component';
 import { MainAppComponent } from './main-app/main-app.component';
 import { FlightAirportComponent } from './flight-airport/flight-airport.component';
+import { SeatsPaxTripComponent } from './seats-pax-trip/seats-pax-trip.component';
 
 
 
@@ -61,7 +62,8 @@ import { FlightAirportComponent } from './flight-airport/flight-airport.componen
         ManageBookingComponent,
         ManagePassengersComponent,
         MainAppComponent,
-        FlightAirportComponent
+        FlightAirportComponent,
+        SeatsPaxTripComponent
     ],
     imports: [
         BrowserModule,

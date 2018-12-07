@@ -6,6 +6,7 @@ import {PassengerMdl} from './models/PassengerMdl';
 import {TicketMdl} from './models/TicketMdl';
 import {BagMdl} from './models/BagMdl';
 import {CabinMdl} from './models/CabinMdl';
+import {SegmentMdl} from './models/SegmentMdl';
 
 
 @Injectable({
@@ -59,6 +60,15 @@ export class OtaService {
     private ticketPricesSource = new BehaviorSubject( [this.tkt1, this.tkt2 , this.tkt3]);
     ticketPrices = this.ticketPricesSource.asObservable();
 
+
+
+
+    seg1 = new SegmentMdl({id: 0, legId: 0, from: 'RHO', to: 'ATH', fromTitle: 'Rhodes', toTitle: 'Athens'});
+    seg2 = new SegmentMdl({id: 0, legId: 0, from: 'RHO', to: 'ATH', fromTitle: 'Rhodes', toTitle: 'Athens'});
+    seg3 = new SegmentMdl({id: 0, legId: 0, from: 'RHO', to: 'ATH', fromTitle: 'Rhodes', toTitle: 'Athens'});
+
+    private segmentsArraySource = new BehaviorSubject([this.seg1, this.seg2, this.seg3]);
+    segmentsArray  = this.segmentsArraySource.asObservable();
 
     constructor() {
     }

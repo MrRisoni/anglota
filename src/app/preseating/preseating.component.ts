@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+
+import { OtaService } from '../ota.service';
+import {PassengerMdl} from '../models/PassengerMdl';
+
+
 @Component({
   selector: 'app-preseating',
   templateUrl: './preseating.component.html',
@@ -7,9 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PreseatingComponent implements OnInit {
 
-  constructor() { }
+    passengerArray: PassengerMdl[];
 
-  ngOnInit() {
-  }
+    constructor(private otaSrvc: OtaService) {
+
+    }
+
+    ngOnInit() {
+        this.otaSrvc.passengerArray.subscribe(paxArr => this.passengerArray = paxArr);
+
+    }
 
 }
