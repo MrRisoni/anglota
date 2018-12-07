@@ -30,10 +30,8 @@ import {FlightLegComponent} from './flight-leg/flight-leg.component';
 import {FlightSegmentsComponent} from './flight-segments/flight-segments.component';
 import {ManageBookingComponent} from './manage-booking/manage-booking.component';
 import {ManagePassengersComponent} from './manage-passengers/manage-passengers.component';
-import { TripComponent } from './trip/trip.component';
-import { LegComponent } from './leg/leg.component';
-import { SegmentComponent } from './segment/segment.component';
 import { MainAppComponent } from './main-app/main-app.component';
+import { FlightAirportComponent } from './flight-airport/flight-airport.component';
 
 
 
@@ -62,10 +60,8 @@ import { MainAppComponent } from './main-app/main-app.component';
         FlightSegmentsComponent,
         ManageBookingComponent,
         ManagePassengersComponent,
-        TripComponent,
-        LegComponent,
-        SegmentComponent,
-        MainAppComponent
+        MainAppComponent,
+        FlightAirportComponent
     ],
     imports: [
         BrowserModule,
